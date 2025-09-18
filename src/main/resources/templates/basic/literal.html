@@ -1,0 +1,21 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>리터럴</h1>
+<ul><!--
+  1. 타임리프에서 리터럴은 ''로 감싸줘야함
+  문자열에서 띄어쓰기가 없으면 하나의 토큰으로 인정해서 ""가 사용될수 있다
+  2. |...| 리터럴 대체, 내부를 통으로 문자로 놓고 변수 표현식(Variable Expression) 을 받아서 문자열로 조합해준다
+-->
+  <!--주의! 다음 주석을 풀면 예외가 발생함-->
+  <!-- <li>"hello world!" = <span th:text="hello world!"></span></li>-->
+  <li>'hello' + ' world!' = <span th:text="'hello' + ' world!'"></span></li>
+  <li>'hello world!' = <span th:text="'hello world!'"></span></li>
+  <li>'hello ' + ${data} = <span th:text="'hello ' + ${data}"></span></li>
+  <li>리터럴 대체 |hello ${data}| = <span th:text="|hello ${data}|"></span></li>
+</ul>
+</body>
+</html>
