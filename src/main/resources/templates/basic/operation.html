@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>산술 연산
+        <ul>
+            <li>10 + 2 = <span th:text="10 + 2"></span></li>
+            <li>10 % 2 == 0 = <span th:text="10 % 2 == 0"></span></li>
+        </ul>
+    </li>
+    <li>비교 연산
+        <!--
+        <를 직접 쓰면 HTML 태그 구문과 겹치므로 &lt;로 이스케이프해야 함
+         lt를 쓰면 HTML 문법 충돌 없이 바로 사용 가능
+        -->
+        <ul>
+            <li>1 < 10 = <span th:text="1 < 10"></span></li>
+            <li>1 < 10 = <span th:text="1 < 10"></span></li>
+            <li>1 >= 10 = <span th:text="1 >= 10"></span></li>
+            <li>1 > 10 = <span th:text="1 > 10"></span></li>
+            <li>1 == 10 = <span th:text="1 == 10"></span></li>
+            <li>1 != 10 = <span th:text="1 != 10"></span></li>
+        </ul>
+    </li>
+    <li>조건식
+        <ul> <!---삼항연산자 ()? true:false-->
+            <li>(10 % 2 == 0)? '짝수':'홀수' = <span th:text="(10 % 2 == 0)? '짝수':'홀수'"></span></li>
+        </ul>
+    </li>
+    <li>Elvis 연산자 <!--엘비스 연산자 : 조건문 처럼 작동함 ${data}?: ...  변수 표현식의 데이터가 존재하면 그 데이터를 렌더링 없다면 : 뒤의 문장을 렌더링-->
+        <ul>
+            <li>${data}?: '데이터가 없습니다.' = <span th:text="${data}?: '데이터가 없습니다.'"></span></li>
+            <li>${nullData}?: '데이터가 없습니다.' = <span th:text="${nullData}?: '데이터가 없습니다.'"></span></li>
+        </ul>
+    </li>
+    <li>No-Operation<!--엘비스 연산자 : 조건문 처럼 작동함 ${data}?:_ 엘비스 연산자에서 만약 변수표현식의 데이터가 존재하지 않으면 타임리프태그가 일체 동작하지않는다-->
+        <ul>
+            <li>${data}?: _ = <span th:text="${data}?: _">데이터가 없습니다.</span></li>
+            <li>${nullData}?: _ = <span th:text="${nullData}?: _">데이터가 없습니다.</span></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
