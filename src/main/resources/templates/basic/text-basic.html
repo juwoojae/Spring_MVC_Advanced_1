@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleag.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+text
+타임리프는 기본적으로 HTML 태그의 속성에 기능을 정의해서 동작한다.
+<span th:text="${data}"> 하면 span 태그의 내부 콘텐츠에 데이터를 출력
+
+HTML 태그의 속성이 아니라 HTML 콘텐츠 영역 안에 직접 데이터를 출력하고 싶으면 [[...]] 를 사용한다
+-->
+<h1>컨텐츠에 데이터 출력하기</h1>
+<ul>
+    <li>th:text 사용 <span th:text="${data}"></span></li>
+    <li>컨텐츠 안에서 직접 출력하기 = [[${data}]]</li>
+</ul>
+</body>
+</html>
+<!--
+Escape
+html 문서는 <,> 같은 특수 문자를 기반으로 정의된다
+사용자가 콘텐츠에 < > 같은 특수 문자를 포함한다면 렌더링할때 &lt;b&gt; 로변경된다
+이런것을 HTML 엔티티라고하고 ,HTML에 제공하는 특수문자를 HTML엔티티로 변경하는것을
+Escape라고 한다 . 타임리프가 제공하는 th:text, [[]]는 기본적으로 escape 를 제공한다
+-->
