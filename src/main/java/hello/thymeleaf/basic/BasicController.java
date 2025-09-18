@@ -36,6 +36,12 @@ public class BasicController {
         model.addAttribute("data", "<b>Hello Spring!</b>");
         return "basic/text-unescaped";
     }
+
+    /**
+     * User 에 @Data 에노테이션 꼭 넣기!!
+     * 문자열로 개체의 프로퍼티나 메서드에 접근할수있는 도구이다
+     * User.username==User['username']==user.getUsername()
+     */
     @GetMapping("/variable")
     public String variable(Model model){
         User userA = new User("userA", 10); //View 로 Model 넘겨준후, Model은 이것으로 화면 렌더링
@@ -75,6 +81,16 @@ public class BasicController {
             return "Hello " + data;
         }
     }
+    /// 유틸리티 객체와 날짜 아래 링크
+    //https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#expression-utility-objects <=타임리프 유틸리티 객체
+
+    @GetMapping("/link")
+    public String link(Model model){
+        model.addAttribute("param1", "data1");
+        model.addAttribute("param2", "data2");
+        return "basic/link";
+    }
+
     @Data
     static class User{
         private String username;

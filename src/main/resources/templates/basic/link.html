@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>URL 링크</h1>
+<ul>
+  <!--
+  타임 리프에서 URL을 생성 할때는 @{...} 문법을 사용하면 된다
+  1.단순 URL
+  @{/hello} -> /hello
+  2. {} 경로변수가 없으므로 (param1=${param1}, param2=${param2}) 모두 쿼리 파라메터로 넘어간다
+  @{/hello(param1=${param1}, param2=${param2})} -> /hello?param1=data1&param2=data2 가된다
+  3. /hello/{param1}/{param2} 경로변수 2개 (param1=${param1}, param2=${param2}) 이므로 경로변수자리에 ()내용을 치환
+  @{/hello/{param1}/{param2}(param1=${param1}, param2=${param2})} -> /hello/data1/data2
+  4. /hello/{param1} 경로변수 1개이므로 () 안에서 param1 은 경로변수 치환 나머지 param2 는 쿼리 파라메터
+  @{/hello/{param1}(param1=${param1}, param2=${param2})} -> /hello/data1?param2=data2
+  -->
+  <li><a th:href="@{/hello}">basic url</a></li>
+  <li><a th:href="@{/hello(param1=${param1}, param2=${param2})}">hello query param</a></li>
+  <li><a th:href="@{/hello/{param1}/{param2}(param1=${param1}, param2=${param2})}">path variable</a></li>
+  <li><a th:href="@{/hello/{param1}(param1=${param1}, param2=${param2})}">path variable + query parameter</a></li>
+</ul>
+</body>
+</html>
