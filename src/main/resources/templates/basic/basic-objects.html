@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>식 기본 객체 (Expression Basic Objects)</h1>
+<ul>
+    <li>request = <span th:text="${request}"></span></li>
+    <li>response = <span th:text="${response}"></span></li>
+    <li>session = <span th:text="${session}"></span></li>
+    <li>servletContext = <span th:text="${servletContext}"></span></li>
+    <li>locale = <span th:text="${#locale}"></span></li>
+</ul>
+<h1>편의 객체</h1>
+<ul>
+    <!--1. ${param.()}: request 파라메터는 원래 Model을 통해서 넘겨야 하지만(ModelAttribute 가 아닌) 타임 리프에서는 이것을 편의객체로 제공해준다
+        2. ${session.()}: Model에 저장해둔 HttpSession 의 key-vale 를 편의객체로 제공
+        3. ${"빈의 이름".()}: 빈의 이름으로 빈내부의 메서드를 편의 객체로서 호출할수 있다
+    -->
+    <li>Request Parameter = <span th:text="${param.paramData}"></span></li>
+    <li>session = <span th:text="${session.sessionData}"></span></li>
+    <li>spring bean = <span th:text="${@helloBean.hello('Spring!')}"></span></li>
+</ul>
+</body>
+</html>
