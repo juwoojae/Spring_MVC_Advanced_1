@@ -1,0 +1,23 @@
+<!--/* 이 템플릿을 모든 header에 적용해주겠다 */-->
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/*
+타임리프 템플릿의 메서드라고 생각을 하자!!
+ 템플릿 조각에 parametor 로 넘길수 있다 . 여기서 파라메터를 태그로 확장할수 있다
+<table> 태그 넘기기, <link> 태그넘기기
+*/-->
+<head th:fragment="common_header(title,links)">
+  <!--/* 현재 <table> 을 매개변수로 받아온 <table> 로 교체(replace) 한다*/-->
+  <!--추가-->
+  <title th:replace="${title}">레이아웃 타이틀</title>
+  <!-- 공통 -->
+  <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/awesomeapp.css}">
+  <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
+  <script type="text/javascript" th:src="@{/sh/scripts/codebase.js}"></script>
+  <!--/*
+ 파라메터로 넘어온 태그들 추가
+ <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/themes/smoothness/jquery-ui.css">
+ */-->
+  <!--추가-->
+  <th:block th:replace="${links}" />
+</head>
