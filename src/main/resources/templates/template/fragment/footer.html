@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--fragment 를 copy 라는 이름으로 선언 -->
+<footer th:fragment="copy">푸터 자리 입니다.</footer>
+
+<footer th:fragment="copyParam (param1, param2)">
+  <p>파라미터 자리 입니다.</p>
+  <p th:text="${param1}"></p>
+  <p th:text="${param2}"></p>
+</footer>
+</body>
+</html>
+<!--/*
+템플릿 조각
+웹페이지를 개발할때 공통 영역이 많이 있다 예를 들면 상단 영역, 하단영역, 좌측 카테고리 등, 여러 페이지에 함께 사용되는 영억이 있다
+이를 메서드의 형식처럼 extract 해서 사용할수있는 템플릿조각(fragment) 를 제공한다.
+*/-->

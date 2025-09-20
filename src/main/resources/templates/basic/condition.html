@@ -16,6 +16,7 @@
     <td th:text="${userStat.count}">1</td>
     <td th:text="${user.username}">username</td>
     <td>
+<<<<<<< Updated upstream
         <!--/*
        타임리프 조건문은 해당 조건이 맞지 않다면 태그 자체를 렌더링 하지 않는다
        th:if="${user.age lt 20}" 이게 참이라면 th:text="'미성년자'"  렌더링
@@ -24,6 +25,15 @@
       <span th:text="'미성년자'" th:if="${user.age lt 20}"></span>
       <span th:text="'미성년자'" th:unless="${user.age ge 20}"></span>
       <span th:unless="${user.age ge 20}">이 문장자체가 사라진다고?</span>
+=======
+      <!--th 의 조건문
+      th if=":${user.age lt 20}" 가 true 여야만 현재 이 태그가 렌더링된다
+      만약 false 라면 이 태그는 랜더링 되지 않는다
+      -->
+      <span th:text="${user.age}">0</span>
+      <span th:text="'미성년자'" th:if="${user.age < 20}"></span>
+      <span th:text="'미성년자'" th:unless="${user.age >= 20}"></span>
+>>>>>>> Stashed changes
     </td>
   </tr>
 </table>
