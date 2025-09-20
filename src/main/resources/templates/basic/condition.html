@@ -7,6 +7,7 @@
 <h1>if, unless</h1>
 <table border="1">
   <tr>
+      <!--이부분이 첫번째 대가리 행-->
     <th>count</th>
     <th>username</th>
     <th>age</th>
@@ -15,9 +16,14 @@
     <td th:text="${userStat.count}">1</td>
     <td th:text="${user.username}">username</td>
     <td>
+        <!--/*
+       타임리프 조건문은 해당 조건이 맞지 않다면 태그 자체를 렌더링 하지 않는다
+       th:if="${user.age lt 20}" 이게 참이라면 th:text="'미성년자'"  렌더링
+        */-->
       <span th:text="${user.age}">0</span>
       <span th:text="'미성년자'" th:if="${user.age lt 20}"></span>
       <span th:text="'미성년자'" th:unless="${user.age ge 20}"></span>
+      <span th:unless="${user.age ge 20}">이 문장자체가 사라진다고?</span>
     </td>
   </tr>
 </table>
@@ -28,6 +34,10 @@
     <th>username</th>
     <th>age</th>
   </tr>
+    <!--/*
+    switch 구문 == 자바에서와 유사
+    th:case 문에서 3가지 span 중에 조건에 맞는 span 태그만 출력하고 나머지는 렌더링이 안된다
+       */-->
   <tr th:each="user, userStat : ${users}">
     <td th:text="${userStat.count}">1</td>
     <td th:text="${user.username}">username</td>

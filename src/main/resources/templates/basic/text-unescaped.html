@@ -12,8 +12,13 @@
 </ul>
 <h1><span th:inline="none">[[...]] vs [(...)]</span></h1>
 <ul>
-  <li><span th:inline="none">[[...]] = </span>[[${data}]]</li>
-  <li><span th:inline="none">[(...)] = </span>[(${data})]</li>
+    <!--/*
+     이렇게 하면 <, > 라는 문자는 &lt, &gt 라는html 엔티티로 escape 한다
+     그리고 웹브라우저 화면에서는 문자열로 그대로 출력된다
+    */-->
+    <li><span th:inline="none">[[...]] = </span>[[${data}]]</li>
+    <!--이렇게 하면 unescape 를 제공한다 -->
+    <li><span th:inline="none">[(...)] = </span>[(${data})]</li>
 </ul>
 </body>
 </html>
